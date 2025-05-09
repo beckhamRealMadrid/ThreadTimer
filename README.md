@@ -1,4 +1,4 @@
-# ⏱️ ThreadTimer 프로젝트
+# ⏱️ ThreadTimer System
 
 **💥 고성능 C++ 서버 타이머 및 작업 스케줄링 시스템 💥**
 
