@@ -1,12 +1,34 @@
 # ⏱️ ThreadTimer System
 
-**💥 고성능 C++ 서버 타이머 및 작업 스케줄링 시스템 💥**
-
-> Windows 기반 MMO 게임 서버 및 고부하 환경을 위한 멀티스레드 타이머 & 스케줄링 프레임워크입니다.
+![C++](https://img.shields.io/badge/C%2B%2B-High%20Performance-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)
 
 ---
 
-![ThreadTimer Banner](https://img.shields.io/badge/C%2B%2B-High%20Performance-blue.svg) ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)
+## 🚩 **프로젝트 개요**
+
+**ThreadTimer**는 대규모 온라인 게임 서버의 시간 기반 이벤트 처리를 정밀하고 효율적으로 수행하기 위해 설계된 **고성능 타이머 및 작업 스케줄링 시스템**입니다.
+
+기존 서버는 콘텐츠 타이머, 주기적 초기화, One-shot 알림 등을 메인 루프에서 처리하며 다음과 같은 문제가 발생했습니다:
+
+* 각 기능별 타이머 로직이 분산되어 있어 유지보수가 어려움
+* 폴링 기반 처리로 CPU 낭비 심각
+* 수천 개 이상의 타이머를 정확하게 제어하기 어려움
+
+이를 해결하기 위해 본 시스템은 다음 목표로 설계되었습니다:
+
+* 고정밀 **WaitableTimer 기반 중앙 타이머 큐** ✅
+* IOCP 기반 **비동기 이벤트 분산 처리** ✅
+* **타이머/핸들러 전용 스레드** 분리로 안정성과 확장성 확보 ✅
+* **정기/One-shot/유저 타이머까지 통합 관리** 가능한 구조 ✅
+
+### 실서비스 적용 결과:
+
+* 서버 내 100종 이상의 타이머를 초 단위 정밀도로 운영
+* CPU 사용률 60\~80% 감소 (기존 폴링 대비)
+* 타이머별 로깅 자동화로 운영 효율 향상
+* 이벤트 지연 및 누락률 감소 → 운영 리스크 제거
 
 ---
 
